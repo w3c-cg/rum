@@ -13,7 +13,7 @@ After each RUMCG meeting:
 * Export any Slides to both `.pdf` and `.pptx`, and put into the Github meeting folder, named `slides.pdf` and `slides.pptx`
 * Save the Google Meeting recording (and Chat log) to the [RUMCG Google Drive Folder](https://drive.google.com/drive/folders/1ocYBFw07q0kAcwZfwliysEwxs5C7_zmI?usp=sharing)
   * Link to the saved recording from the main [RUMCG Agenda doc](https://docs.google.com/document/d/1rLCI3sySslyZXyZkx5r3c8J1RYBHgYoulyUu-KybLDw/edit?tab=t.0)
-* Copy the AI transcript into `transcript.md` in the Github meeting folder
+* Copy the AI transcript into `transcript.md` (or `transcript.pdf` depending on what's available) in the Github meeting folder
 * Update `rum/meeting/README.md` with links to minutes, slides, recording and transcript
 * Post summary to `#w3c-rum-community-group` in webperformance Slack
 * Post summary to `public-rumcg@w3.org` email list
