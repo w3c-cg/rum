@@ -2,6 +2,12 @@ The WG's meeting schedule is being managed in its [agenda document](https://docs
 
 Links to the meeting minutes are below:
 
+# 2026
+
+| Meeting        |                                 Minutes                                  |                                    Slides (PPTX)                                     |                                    Slides (PDF)                                     |                                   Recording                                    | Transcript                                                                              |
+|:---------------|:------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------|
+| February 11th  | [link](https://w3c-cg.github.io/rum/meetings/2026/2026-02-11/index.html) | [link](https://github.com/w3c-cg/rum/blob/main/meetings/2026/2026-02-11/slides.pptx) | [link](https://github.com/w3c-cg/rum/blob/main/meetings/2026/2026-02-11/slides.pdf) | [link](https://drive.google.com/file/d/1Oyn9VQQyF5neP2Ms7iifOrS7-p3ynfuM/view?usp=sharing) | [link](https://github.com/w3c-cg/rum/blob/main/meetings/2026/2026-02-11/transcript.md)  |
+
 # 2025
 
 | Meeting        |                                 Minutes                                  |                                    Slides (PPTX)                                     |                                    Slides (PDF)                                     |                                   Recording                                    | Transcript                                                                              |
