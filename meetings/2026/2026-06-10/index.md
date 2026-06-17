@@ -2,12 +2,11 @@
 
 ## Agenda
 
-* Firefox browser updates (Andrew)  
-* Chrome browser updates (Barry)
+* OpenTelemetry and RUM (Jared)
 
 ## Admin
 
-* Next meeting: June 10, 2026
+* Next meeting: August 12, 2026
 
 ## **General Summary**
 
