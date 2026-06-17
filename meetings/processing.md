@@ -17,3 +17,4 @@ After each RUMCG meeting:
 * Update `rum/meeting/README.md` with links to minutes, slides, recording and transcript
 * Post summary to `#w3c-rum-community-group` in webperformance Slack
 * Post summary to `public-rumcg@w3.org` email list
+* Post summary to Bsky

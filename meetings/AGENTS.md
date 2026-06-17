@@ -12,7 +12,9 @@ When the required meeting files are available, the agent can produce and update:
 1. `meetings/<year>/<date>/transcript.md` — transcript converted from DOCX format to Markdown format
 2. `meetings/README.md` — add a row linking the new meeting
    - Ask the user for a link to the Google Meet Recording
-3. Prepare a summary message to be posted to Slack
+3. Prepare the contents of a message the user will post to `#w3c-rum-community-group` Slack channel
+4. Prepare the contents of a message the user will post to the `public-rumcg@w3.org` email list
+5. Prepare the contents of a Bsky message the user will post
 
 ## What an agent CANNOT do (manual / external steps)
 
@@ -24,10 +26,12 @@ do not fake links or invent IDs for them:
 - `index.md` downloaded from the Google Doc as Markdown
 - `slides.pdf` / `slides.pptx` — exported from Google Slides
 - Saving the Google Meet recording + chat log to Google Drive (and getting its share link)
-- Posting the summary to the `#w3c-rum-community-group` Slack channel
-- Posting the summary to the `public-rumcg@w3.org` email list
+- Posting the message to the `#w3c-rum-community-group` Slack channel
+- Posting the message to the `public-rumcg@w3.org` email list
+- Posting the message to Bsky
 
-When you finish the in-repo work, list these remaining manual steps for the user.
+When you finish the in-repo work, list these remaining manual steps for the user, and
+provide the three message contents for Slack, Email and Bsky.
 
 ## Source files
 
@@ -82,14 +86,18 @@ Add a row to the **top** of the correct year's table. Columns:
 The table uses bare `[link](...)` text and has no top-level heading — match it; the markdown
 lint warnings (MD041/MD059) are pre-existing and intentional. Don't "fix" them.
 
-## Meeting summary Slack message
+## Message contents templates
 
-The following template can be used, replacing the template parameters:
+The following placeholder text can be used in any of the message contents below:
 
-- {{LONGDATE}} is the human friendly date, such as `May 13th`
-- {{SHROTDATE}} is a date in `yyyy-mm-dd` format, such as `2026-05-13`
-- {{YEAR}} is the current year in `yyyy` format, such as `2026`
-- {{RECORDINGLINK}} is the Google Meet Recording link provided by the user
+- `{{LONGDATE}}` is the human friendly date, such as `May 13th`
+- `{{SHROTDATE}}` is a date in `yyyy-mm-dd` format, such as `2026-05-13`
+- `{{YEAR}}` is the current year in `yyyy` format, such as `2026`
+- `{{RECORDINGLINK}}` is the Google Meet Recording link provided by the user
+
+## Meeting summary Slack message contents
+
+Using the message contents templates, prepare the following text:
 
 ```text
 {{LONGDATE}} [meeting content](https://w3c-cg.github.io/rum/meetings/):
@@ -99,6 +107,37 @@ The following template can be used, replacing the template parameters:
 * [Recording]({{RECORDINGLINK}})
 * [Transcript](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/transcript.md)
 ```
+
+Provide this text to the user to post to the `#w3c-rum-community-group` Slack channel.
+
+## Meeting summary Email message contents
+
+Using the message contents templates, prepare the following text:
+
+```text
+{{LONGDATE}} meeting content (https://w3c-cg.github.io/rum/meetings/):
+
+* Minutes:
+  * HTML: https://w3c-cg.github.io/rum/meetings/{{2026}}/{{SHORTDATE}}/index.html
+  * Markdown: https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.md
+* Slides:
+  * PPTX: https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pptx
+  * PDF: https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pdf
+* Recording: {{RECORDINGLINK}}
+* Transcript: https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/transcript.md
+```
+
+Provide this text to the user to email to `public-rumcg@w3.org`.
+
+# Bsky message contents
+
+Using the message contents templates, prepare the following text:
+
+```text
+W3C RUM Community Group (RUMCG) {{SHORTDATE}} meeting minutes + recording are now available: https://w3c-cg.github.io/rum/meetings/
+```
+
+Provide this text to the user to Bsky.
 
 ## Gotchas
 
