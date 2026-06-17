@@ -7,12 +7,12 @@ follow.
 
 ## What an agent can do in-repo
 
-Given a new meeting folder containing the raw AI-scribe exports (usually `.docx` files), an
-agent can produce and update:
+When the required meeting files are available, the agent can produce and update:
 
-1. `meetings/<year>/<date>/index.md` — the formatted meeting minutes
-2. `meetings/<year>/<date>/transcript.md` — the verbatim AI transcript
-3. `meetings/README.md` — add a row linking the new meeting
+1. `meetings/<year>/<date>/transcript.md` — transcript converted from DOCX format to Markdown format
+2. `meetings/README.md` — add a row linking the new meeting
+   - Ask the user for a link to the Google Meet Recording
+3. Prepare a summary message to be posted to Slack
 
 ## What an agent CANNOT do (manual / external steps)
 
@@ -21,6 +21,7 @@ do not fake links or invent IDs for them:
 
 - Creating/maintaining the Google Doc and linking it from the RUMCG Agenda doc
 - `index.html` (+ any images) — downloaded from the Google Doc as zipped HTML
+- `index.md` downloaded from the Google Doc as Markdown
 - `slides.pdf` / `slides.pptx` — exported from Google Slides
 - Saving the Google Meet recording + chat log to Google Drive (and getting its share link)
 - Posting the summary to the `#w3c-rum-community-group` Slack channel
@@ -30,21 +31,22 @@ When you finish the in-repo work, list these remaining manual steps for the user
 
 ## Source files
 
-The user drops AI-scribe exports into the meeting folder. Typical set:
+The user drops meeting assets into the meeting folder.  Typically this is:
 
-- A large `.docx` (e.g. `RUM CG <Month> <Date>, <Year>.docx`) — contains the **AI summary**
-  (General Summary, Notes, Action items) plus sometimes the transcript. This is the source
-  for `index.md`.
-- A `.docx` with timestamp/speaker/text blocks — the **transcript**. Source for `transcript.md`.
-- A "Notes in the chat …" `.docx` — the **chat log**. Per `processing.md` this goes to Google
-  Drive, **not** the repo; do not create a repo file for it unless asked.
+- `index.md` - formatted meeting minutes in Markdown
+- `index.hmtl` - formatted meeting minutes in HTML
+- `slides.pdf` - slides in PDF
+- `slides.pptx` - slides in PPTX
+- A `transcript.docx` with timestamp/speaker/text blocks — the **transcript**. Source for `transcript.md`.
+
+Before taking any other steps, ensure the above files exist.  If not, prompt the user to add them.
 
 Identify each by opening it (a `.docx` is a zip; see extraction below), not by filename alone —
 the filenames vary and are sometimes misleading.
 
 ### Extracting .docx text
 
-`pandoc` and `python-docx` are **not** installed. Python 3.10 is at `/c/Python310/python`.
+`pandoc` and `python-docx` **may not** be installed. Python may be in the path.
 A `.docx` is a zip whose `word/document.xml` holds the body. Extract paragraph text by walking
 `<w:p>` elements (collect `<w:t>` text, treat `<w:tab>`/`<w:br>` as whitespace; map `pStyle`
 `Heading1/2/3` to `#`/`##`/`###` and `numPr` indent levels to bullets).
@@ -55,25 +57,11 @@ encoding mangles en-dashes (`–`) and curly quotes (`'`).
 
 Clean up any temporary extraction scripts/text files when done.
 
-## index.md conventions
-
-Match the most recent existing `index.md` (e.g. `2026/2026-05-13/index.md`) exactly:
-
-- First line: `## <Month D, YYYY> | [RUMCG Meeting](<calendar link>)`
-  The calendar link is the same recurring-event URL reused across all meetings — copy it
-  from the previous meeting's `index.md`.
-- Sections in order: `## Agenda`, `## Admin` (with `* Next meeting: <date>`),
-  `## **General Summary**`, `## **Notes**`, `## **Action items**`, `## Open Questions`.
-- House style **bolds** the summary/notes headers and the per-topic bullet titles
-  (`### **Heading**`, `* **Topic title** (MM:SS)`); the raw scribe export does not — add it.
-- Keep the `(MM:SS)` timestamps the scribe attaches to each topic and action item.
-- Action items group under `##### **Name**` headings.
-
 ## transcript.md conventions
 
 Format is blocks of three lines — timestamp, speaker, text — separated by blank lines:
 
-```
+```text
 00:00
 Nic Jansma
 Everybody, I really apologize for that...
@@ -93,6 +81,24 @@ Add a row to the **top** of the correct year's table. Columns:
 
 The table uses bare `[link](...)` text and has no top-level heading — match it; the markdown
 lint warnings (MD041/MD059) are pre-existing and intentional. Don't "fix" them.
+
+## Meeting summary Slack message
+
+The following template can be used, replacing the template parameters:
+
+- {{LONGDATE}} is the human friendly date, such as `May 13th`
+- {{SHROTDATE}} is a date in `yyyy-mm-dd` format, such as `2026-05-13`
+- {{YEAR}} is the current year in `yyyy` format, such as `2026`
+- {{RECORDINGLINK}} is the Google Meet Recording link provided by the user
+
+```text
+{{LONGDATE}} [meeting content](https://w3c-cg.github.io/rum/meetings/):
+
+* Minutes: [HTML](https://w3c-cg.github.io/rum/meetings/{{2026}}/{{SHORTDATE}}/index.html) [Markdown](https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.md)
+* Slides: [PPTX](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pptx) [PDF](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pdf)
+* [Recording]({{RECORDINGLINK}})
+* [Transcript](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/transcript.md)
+```
 
 ## Gotchas
 
