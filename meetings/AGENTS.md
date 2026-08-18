@@ -50,16 +50,15 @@ the filenames vary and are sometimes misleading.
 
 ### Extracting .docx text
 
-`pandoc` and `python-docx` **may not** be installed. Python may be in the path.
-A `.docx` is a zip whose `word/document.xml` holds the body. Extract paragraph text by walking
-`<w:p>` elements (collect `<w:t>` text, treat `<w:tab>`/`<w:br>` as whitespace; map `pStyle`
-`Heading1/2/3` to `#`/`##`/`###` and `numPr` indent levels to bullets).
+Use the `docx-to-md.ps1` script:
 
-**Always write extracted text to a UTF-8 file directly** (`open(path,'w',encoding='utf-8')`).
-Do **not** rely on `python ... > file.txt` stdout redirection in Git Bash — the Windows console
-encoding mangles en-dashes (`–`) and curly quotes (`'`).
+```powershell
+.\meetings\docx-to-md.ps1 -DocxPath "meetings/2026/2026-08-12/transcript.docx"
+```
 
-Clean up any temporary extraction scripts/text files when done.
+The script extracts `word/document.xml` from the docx (which is a zip file), parses Word XML elements
+(`<w:p>` paragraphs, `<w:t>` text, `<w:br>` breaks), and writes to a UTF-8 file with proper CRLF line endings.
+It handles Windows console encoding issues automatically.
 
 ## transcript.md conventions
 
