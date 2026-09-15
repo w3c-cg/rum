@@ -989,7 +989,7 @@ Basically if we don't. If we don't provide that uniform message of how things sh
 
 52:01
 Nic Jansma
-Agreed Matthias. 
+Agreed Mateusz. 
 
 52:05
 Mateusz Krzeszowiak

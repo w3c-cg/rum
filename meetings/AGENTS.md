@@ -38,7 +38,7 @@ provide the three message contents for Slack, Email and Bsky.
 The user drops meeting assets into the meeting folder.  Typically this is:
 
 - `index.md` - formatted meeting minutes in Markdown
-- `index.hmtl` - formatted meeting minutes in HTML
+- `index.html` - formatted meeting minutes in HTML
 - `slides.pdf` - slides in PDF
 - `slides.pptx` - slides in PPTX
 - A `transcript.docx` with timestamp/speaker/text blocks — the **transcript**. Source for `transcript.md`.
@@ -101,7 +101,7 @@ Using the message contents templates, prepare the following text:
 ```text
 {{LONGDATE}} [meeting content](https://w3c-cg.github.io/rum/meetings/):
 
-* Minutes: [HTML](https://w3c-cg.github.io/rum/meetings/{{2026}}/{{SHORTDATE}}/index.html) [Markdown](https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.md)
+* Minutes: [HTML](https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.html) [Markdown](https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.md)
 * Slides: [PPTX](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pptx) [PDF](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pdf)
 * [Recording]({{RECORDINGLINK}})
 * [Transcript](https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/transcript.md)
@@ -117,7 +117,7 @@ Using the message contents templates, prepare the following text:
 {{LONGDATE}} meeting content (https://w3c-cg.github.io/rum/meetings/):
 
 * Minutes:
-  * HTML: https://w3c-cg.github.io/rum/meetings/{{2026}}/{{SHORTDATE}}/index.html
+  * HTML: https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.html
   * Markdown: https://w3c-cg.github.io/rum/meetings/{{YEAR}}/{{SHORTDATE}}/index.md
 * Slides:
   * PPTX: https://github.com/w3c-cg/rum/blob/main/meetings/{{YEAR}}/{{SHORTDATE}}/slides.pptx

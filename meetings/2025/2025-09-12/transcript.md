@@ -265,7 +265,7 @@ Yeah, I'll manage that later. Yeah. So interrupt 2026. It's coming. And I'm stil
 
 17:32
 Speaker 3
-I think we're also still missing a couple of them. I think we probably want speculation rules. Scheduler yields would be nice. Are there others? And could you guys. Thank you, Matthias, that would be awesome. And yes, we should also do a mess. We should absolutely do that, Sergey. But are there others? I think we have until October 3rd to add them and I think it would be good if it came from us. Yoav. 
+I think we're also still missing a couple of them. I think we probably want speculation rules. Scheduler yields would be nice. Are there others? And could you guys. Thank you, Mateusz, that would be awesome. And yes, we should also do a mess. We should absolutely do that, Sergey. But are there others? I think we have until October 3rd to add them and I think it would be good if it came from us. Yoav. 
 
 18:10
 Speaker 6
@@ -477,7 +477,7 @@ One about.
 
 41:11
 Speaker 5
-Removing yourself from the job eventually. I don't think that will ever happen. No matter what we collect, action cannot be taken. As Matthias just said, like getting to where in the stack, like that will never happen. Like with best tools we will have to investigate. 
+Removing yourself from the job eventually. I don't think that will ever happen. No matter what we collect, action cannot be taken. As Mateusz just said, like getting to where in the stack, like that will never happen. Like with best tools we will have to investigate. 
 
 41:27
 Speaker 1
@@ -669,7 +669,7 @@ Wonderful discussion. Thank you Isaac for taking the time to lead us through tha
 
 58:50
 Speaker 3
-And just one more thing for everyone who's going to performance now and is not yet aware we have, as Sergey called it, a ramrom, a real user meetup with thanks to Philip in the Google headquarters the day before performance now. And if anyone's around, please join and please fill out the Eventbrite link to do so as we need. No, you're right in time. It's no problem at all. Even if you would be a bit later. Matthias. Yeah, so Matthias, sorry, lots of things happening as much. But fill out the Eventbrite link at least three days before because we need to tell the security guys at Google that we're coming, bring an ID and we'd love to see you there. 
+And just one more thing for everyone who's going to performance now and is not yet aware we have, as Sergey called it, a ramrom, a real user meetup with thanks to Philip in the Google headquarters the day before performance now. And if anyone's around, please join and please fill out the Eventbrite link to do so as we need. No, you're right in time. It's no problem at all. Even if you would be a bit later. Mateusz. Yeah, so Mateusz, sorry, lots of things happening as much. But fill out the Eventbrite link at least three days before because we need to tell the security guys at Google that we're coming, bring an ID and we'd love to see you there. 
 
 59:51
 Speaker 1

@@ -1,4 +1,4 @@
-# Convert DOCX transcript to Markdown
+﻿# Convert DOCX transcript to Markdown
 # Usage: .\docx-to-md.ps1 -DocxPath "path\to\transcript.docx" -OutputPath "path\to\transcript.md"
 
 param(
@@ -14,7 +14,7 @@ if (-not $OutputPath) {
     $OutputPath = [System.IO.Path]::ChangeExtension($DocxPath, ".md")
 }
 
-$tempDir = "$(Get-Item -Path Temp -ErrorAction SilentlyContinue).FullName\docx_extract_$(Get-Random)"
+$tempDir = Join-Path $env:TEMP "docx_extract_$(Get-Random)"
 $zipPath = [System.IO.Path]::ChangeExtension($DocxPath, ".zip")
 
 try {
@@ -100,7 +100,7 @@ try {
     [System.IO.File]::WriteAllText($OutputPath, $content, [System.Text.Encoding]::UTF8)
 
     Write-Host "✓ Created $OutputPath with $($output.Count) lines"
-    Write-Host "✓ File size: $(Get-Item $OutputPath).Length bytes"
+    Write-Host "✓ File size: $((Get-Item $OutputPath).Length) bytes"
 
 } finally {
     # Clean up temp directory
